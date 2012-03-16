@@ -3,6 +3,10 @@ require 'spec_helper'
 describe StaticPagesController do
   render_views
 
+  before(:each) do
+    @Base_title = "Ruby on rails first app"
+  end
+
   describe "GET 'home'" do
     it "returns http success" do
       get 'home'
@@ -11,7 +15,8 @@ describe StaticPagesController do
 
     it "should have the right title" do
       get 'home'
-      response.should have_selector('title', :content => "Ruby on rails first app | Home")
+      response.should have_selector('title', 
+                                    :content => "#{@Base_title} | Home")
     end
   end
 
@@ -23,7 +28,8 @@ describe StaticPagesController do
 
     it "should have the right title" do
       get 'help'
-      response.should have_selector("title", :content => "Ruby on rails first app | Help")
+      response.should have_selector("title", 
+                                    :content => "#{@Base_title} | Help")
     end
   end
 
@@ -35,7 +41,8 @@ describe StaticPagesController do
 
     it "should have the right title" do
       get 'about'
-      response.should have_selector("title", :content => "Ruby on rails first app | About")
+      response.should have_selector("title", 
+                                    :content => "#{@Base_title} | About")
     end
   end
 
