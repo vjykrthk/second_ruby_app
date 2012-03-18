@@ -3,34 +3,16 @@
 	<head>
 		<title><%= title %></title>
 		<%= csrf_meta_tag %>
-		<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-		<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
-		<!--[if lt IE 8]>
-		<%= stylesheet_link_tag 'blueprint/ie', :media => 'screen' %>
-		<![endif]-->
-		<%= stylesheet_link_tag 'custom', :media => 'screen' %>
+		<%= render 'layouts/stylesheets'%>
 	</head>
 	<body>
 		<div class = "container">
-			<header>
-				<%= image_tag("second_app.jpeg", 
-							:alt=>"Second app",
-							:class=>"round" ) %>
-				<nav class = "round">
-					<ul>
-						<li><%= link_to "Home",	'#'%></li>
-						<li><%= link_to "Help", '#'%></li>
-						<li><%= link_to "Signin", '#'%></li>
-					</ul>
-				</nav>
-			</header>
+			<%= render 'layouts/header' %>
 			<section class = "round">
 				<%= yield %>
 				<%= link_to "Sign up now", '#', :class => "signupstyle round"%>
 			</section>
+			<%= render 'layouts/footer' %>
 		</div>
 		
 	</body>
