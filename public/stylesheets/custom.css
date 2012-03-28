@@ -67,3 +67,16 @@ section a.signupstyle {
 	-webkit-border-radius :10px;
 	border-radius :10px;
 }
+
+.sidebar {
+	font-size: 1.2em;
+	background-color: #efd;
+	padding: 10px;	
+}
+
+.gravatar {
+	border: 2px solid #777;
+	padding: 2px;
+	margin-right:10px;
+	margin-bottom: -17px;
+}

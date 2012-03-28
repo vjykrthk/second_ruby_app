@@ -2,17 +2,20 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'rb-readline'
+gem 'gravatar_image_tag', '1.0.0.pre2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
   gem 'rspec-rails', '2.8.1'
+  gem 'annotate', '2.4.0'
 end
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'webrat', '0.7.1'
+  gem 'webrat', '0.7.2'
+  gem 'factory_girl_rails', '1.0'
 end
 
 group :production do
