@@ -80,3 +80,39 @@ section a.signupstyle {
 	margin-right:10px;
 	margin-bottom: -17px;
 }
+
+div.field, div.action {
+	margin-bottom: 5px;
+}
+
+div#error_messages {
+	background-color: #900;
+	color: #fff;
+	padding:7px;
+	margin-bottom: 10px;	
+}
+
+div#error_messages h1 {
+	font-size:2.0em;
+	
+	margin: 0;
+	color: #fff;
+}
+
+div#error_messages p {
+	font-size:1.5em;
+	margin: 0;
+}
+
+div#error_messages ul {
+	margin-top:0;
+}
+
+div#error_messages ul li{
+	margin-bottom: 2px;
+}
+
+div.flash {
+	font-size:1.4;
+	font-weight:bold;
+}

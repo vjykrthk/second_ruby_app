@@ -9,6 +9,9 @@
 		<div class = "container">
 			<%= render 'layouts/header' %>
 			<section class = "round">
+				<% flash.each do |key, value| %>
+				<div class="flash"><%= value %></div>
+				<% end %>
 				<%= yield %>
 				<%= link_to "Sign up now", signup_path, :class => "signupstyle round"%>
 			</section>
