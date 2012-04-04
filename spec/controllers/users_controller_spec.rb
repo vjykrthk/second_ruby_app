@@ -94,6 +94,11 @@ describe UsersController do
       flash[:success].should =~ /welcome to second app/i
     end 
 
+    it "Should sigin the user upon successfull signup" do
+      post :create, :user => @attr
+      controller.should be_signed_in
+    end
+
   end
 
 end
