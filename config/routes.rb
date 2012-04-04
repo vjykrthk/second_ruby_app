@@ -1,5 +1,8 @@
 SecondApp::Application.routes.draw do
+  get "sessions/new"
+
   resources:users
+  resources:sessions, :only => [:new, :create, :destroy]
 
   root :to => 'static_pages#home'
 
@@ -10,6 +13,10 @@ SecondApp::Application.routes.draw do
   match '/about', :to => 'static_pages#about'
 
   match '/contact', :to => 'static_pages#contact'
+
+  match '/signin', :to => 'sessions#new'
+
+  match '/signout', :to => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
