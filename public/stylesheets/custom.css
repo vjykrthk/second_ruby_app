@@ -116,3 +116,8 @@ div.flash {
 	font-size:1.4;
 	font-weight:bold;
 }
+
+ul.users li {
+	list-style: none;
+	margin-top: 2em;
+}

@@ -28,4 +28,29 @@ module SessionsHelper
 		cookies.delete(:remember_token)
 		current_user = nil
 	end
+
+	def deny_access
+		store_location
+		redirect_to signin_path, :notice => "Please signin to access this page"
+	end
+
+	def current_user?(user)
+		current_user == user
+	end
+
+	def redirect_back_to(default)
+		redirect_to(session[:return_to] || default)
+		clear_location
+	end
+
+
+	private
+
+	def store_location
+		session[:return_to] = request.fullpath 
+	end
+
+	def clear_location
+		session[:return_to] = nil
+	end
 end

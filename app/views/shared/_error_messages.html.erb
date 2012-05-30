@@ -1,9 +1,9 @@
-<% if @user.errors.any? %>
+<% if f.errors.any? %>
 <div id="error_messages">
-	<h1><%= pluralize(@user.errors.count, "error") %></h1>
+	<h1><%= pluralize(f.errors.count, "error") %></h1>
 	<p>Registration was unsuccessfull, the following errors occurred</p>
 	<ul>
-		<% @user.errors.full_messages.each do |msg|%>
+		<% f.errors.full_messages.each do |msg|%>
 			<li><%= msg %></li>
 		<% end %>
 	</ul>
