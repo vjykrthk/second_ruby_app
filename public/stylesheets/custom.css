@@ -71,7 +71,8 @@ section a.signupstyle {
 .sidebar {
 	font-size: 1.2em;
 	background-color: #efd;
-	padding: 10px;	
+	padding: 10px;
+	margin-top: 0px;	
 }
 
 .gravatar {
@@ -121,3 +122,31 @@ ul.users li {
 	list-style: none;
 	margin-top: 2em;
 }
+
+/* Microposts style */
+
+td {
+	vertical-align: top;
+}
+
+tbody tr:nth-child(2n) td.micropost, tbody tr.even td.micropost {
+    background: none repeat scroll 0 0 #fff;
+}
+
+td.micropost {
+	font-size: 1.2em;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+}
+
+span.content {
+	line-height: 1.2em;
+}
+
+span.timestamp {
+	display: block;
+	font-weight: bold;
+}
+
+
+

@@ -2,11 +2,14 @@
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
 require "digest"
 class User < ActiveRecord::Base
@@ -26,6 +29,7 @@ class User < ActiveRecord::Base
 							
 
 	before_save :encrypt_password
+	has_many :microposts, :dependent => :destroy
 
 	def has_password?(password)
 		self.encrypted_password == encrypt(password)
@@ -40,6 +44,10 @@ class User < ActiveRecord::Base
 	def self.authenticate_with_salt(id, salt)
 		user = find_by_id(id)
 		(user && user.salt == salt) ? user : nil
+	end
+
+	def feed
+		Micropost.where("user_id = ?", id)
 	end
 
 	private
@@ -60,3 +68,6 @@ class User < ActiveRecord::Base
 		Digest::SHA2.hexdigest(password) 
 	end
 end
+
+
+
