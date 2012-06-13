@@ -69,6 +69,7 @@ section a.signupstyle {
 }
 
 .sidebar {
+	width: 250px;
 	font-size: 1.2em;
 	background-color: #efd;
 	padding: 10px;
@@ -79,7 +80,6 @@ section a.signupstyle {
 	border: 2px solid #777;
 	padding: 2px;
 	margin-right:10px;
-	margin-bottom: -17px;
 }
 
 div.field, div.action {

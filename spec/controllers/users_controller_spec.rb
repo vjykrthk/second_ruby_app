@@ -319,4 +319,36 @@ describe UsersController do
       end
     end
   end
+
+  describe "follow page" do
+    describe "When user is not signed in" do
+      it "Should deny access to the following page" do
+        get :following, :id => 1
+        response.should redirect_to(signin_path)
+      end
+      it "Should deny access to the following page" do
+        get :followers, :id => 1
+        response.should redirect_to(signin_path)
+      end
+    end
+  
+    describe "When the user is signed in" do
+      before(:each) do
+        @user = Factory(:user)
+        test_sign_in(@user)
+        @other_user = Factory(:user, :email => Factory.next(:email))
+        @user.follow!(@other_user)
+      end
+
+      it "Should show user following" do
+        get :following, :id => @user
+        response.should have_selector('a', :href => user_path(@other_user), :content => @other_user.name )
+      end
+
+      it "Should show user followers" do
+         get :followers, :id => @other_user
+        response.should have_selector('a', :href => user_path(@user), :content => @user.name )
+      end
+    end
+  end
 end
